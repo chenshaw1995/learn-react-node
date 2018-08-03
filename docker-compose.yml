@@ -1,0 +1,27 @@
+version: '3'
+services:
+  web:
+    build: .
+    image: chenxc/get-started:0.2
+    deploy:
+      replicas: 5
+      resources:
+        limits:
+          cpus: "0.1"
+          memory: 50M
+      restart_policy:
+        condition: on-failure
+    ports:
+      - "4000:80"
+    networks:
+      - webnet
+  redis:
+    image: redis
+  db:
+    image: mysql
+
+networks: 
+    depends_on:
+      - db
+      - redis
+

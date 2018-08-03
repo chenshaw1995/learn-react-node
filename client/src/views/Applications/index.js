@@ -7,3 +7,4 @@ import MultiProfile from './Profile';
 export {
   Add, Manage, Profile, Update, MultiProfile
 };
+
